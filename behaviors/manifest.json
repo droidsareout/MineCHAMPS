@@ -4,19 +4,19 @@
 		"name": "§aMine§gCHAMPS §dBehaviors§r",
 		"description": "§7Behaviors required for §aMine§gCHAMPS§7.§r",
 		"uuid": "0198f2d6-c537-74e8-8499-5753dc094c9e",
-		"version": [1, 0, 3],
+		"version": [1, 0, 4],
 		"min_engine_version": [1, 21, 0]
 	},
 	"modules": [
 		{
 			"type": "data",
 			"uuid": "0198f2d6-d8e9-704d-845a-3c68a50e65ef",
-			"version": [1, 0, 3]
+			"version": [1, 0, 4]
 		},
         {
             "type": "script",
             "uuid": "0198f2d6-e6e5-7429-bdda-427e7caf050e",
-			"version": [1, 0, 3],
+			"version": [1, 0, 4],
             "entry": "scripts/index.js"
         }
 	],
