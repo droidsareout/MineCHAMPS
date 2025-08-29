@@ -46,7 +46,6 @@ system.beforeEvents.startup.subscribe(event => {
             }
         }
     );
-
     event.customCommandRegistry.registerCommand(
         {
             name: "minechamps:discord",
@@ -57,6 +56,21 @@ system.beforeEvents.startup.subscribe(event => {
             system.run(() => origin.sourceEntity.sendMessage("§gMineCHAMPS Discord server code: §dUyJtnkyUfE"));
 
             return { status: CustomCommandStatus.Success };
+        }
+    );
+
+    event.customCommandRegistry.registerCommand(
+        {
+            name: "minechamps:clearchat",
+            description: "Fill chat with blank spaces to clear it.",
+            permissionLevel: CommandPermissionLevel.GameDirectors
+        },
+        (origin) => {
+            system.run(() => {
+                for (let i = 0; i < 100; i++) world.sendMessage(" ");
+                world.sendMessage(`§uChat cleared by ${origin.sourceEntity.name}.`);
+                world.getPlayers().forEach((players) => players.playSound("random.pop"));
+            });
         }
     );
 });
