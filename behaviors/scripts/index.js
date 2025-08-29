@@ -1,4 +1,5 @@
 import "test";
-import "customCommands";
+import "commands";
 import "antiGrief";
 import "leaderboards";
+import "onJoin";
