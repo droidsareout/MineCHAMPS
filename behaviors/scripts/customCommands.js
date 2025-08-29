@@ -15,7 +15,7 @@ import {
 import { ActionFormData } from "@minecraft/server-ui";
 
 system.beforeEvents.startup.subscribe(event => {
-  event.customCommandRegistry.registerCommand(
+    event.customCommandRegistry.registerCommand(
         {
             name: "minechamps:spawn",
             description: "Return to spawn",
@@ -25,9 +25,7 @@ system.beforeEvents.startup.subscribe(event => {
             if (origin.sourceEntity.hasTag("inGame")) {
                 origin.sourceEntity.sendMessage("§cYou cannot return to spawn while in game!");
             
-                return {
-                    status: CustomCommandStatus.Success,
-                };
+                return { status: CustomCommandStatus.Success };
             };
             
             system.run(() => {
@@ -37,13 +35,24 @@ system.beforeEvents.startup.subscribe(event => {
                     x: 0.50, y: -59, z: 1.50,
                 } });
             
-                origin.sourceEntity.sendMessage("§gSuccessfully teleported to spawn!");
+                origin.sourceEntity.sendMessage("§aSuccessfully teleported to spawn.");
                 //system.runTimeout(origin.sourceEntity.playSound("mob.endermen.portal"), 1)
             });
             
-            return {
-                status: CustomCommandStatus.Success,
-            };
+            return { status: CustomCommandStatus.Success };
+        }
+    );
+
+    event.customCommandRegistry.registerCommand(
+        {
+            name: "minechamps:discord",
+            description: "Get the link to the discord server",
+            permissionLevel: CommandPermissionLevel.Any,
+        },
+        (origin) => {
+            system.run(() => origin.sourceEntity.sendMessage("§gMineCHAMPS Discord server code: §dUyJtnkyUfE"));
+
+            return { status: CustomCommandStatus.Success };
         }
     );
 });
