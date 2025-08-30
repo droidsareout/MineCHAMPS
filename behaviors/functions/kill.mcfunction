@@ -1,0 +1,1 @@
+kill @e[type=item,name="§r§nSuggestion Book"]
