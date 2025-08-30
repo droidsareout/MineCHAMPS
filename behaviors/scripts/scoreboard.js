@@ -26,13 +26,11 @@ system.runInterval(() => {
 });
 
 //Play Time
-
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
         world.scoreboard.getObjective("ptSec").addScore(player, 1)
     };
 }, 20);
-
 system.runInterval(() => {
     for (const player of world.getPlayers()) {
         const ptSec = world.scoreboard.getObjective("ptSec")
@@ -51,4 +49,22 @@ system.runInterval(() => {
             ptDay.addScore(player, 1);
         };
     };
+});
+
+//Player counts
+system.runInterval(() => {
+    world.getPlayers().forEach((player) => {
+        const worldStats = world.scoreboard.getObjective("worldStats")
+        let onlineCount = Number(JSON.stringify(world.getAllPlayers().length));
+        let inGameCount = Number(JSON.stringify(player.dimension.getPlayers({ tags: ["inGame"] }).length));
+        let spectatingGameCount = Number(JSON.stringify(player.dimension.getPlayers({ tags: ["spectatingGame"] }).length));
+        let optedInCount = Number(JSON.stringify(player.dimension.getPlayers({ tags: ["optedIn"] }).length));
+        let optedOutCount = onlineCount - optedInCount;
+        
+        worldStats.setScore("online", onlineCount);
+        worldStats.setScore("inGame", inGameCount);
+        worldStats.setScore("spectatingGame", spectatingGameCount);
+        worldStats.setScore("optedIn", optedInCount);
+        worldStats.setScore("optedOut", optedOutCount);
+    });
 });
