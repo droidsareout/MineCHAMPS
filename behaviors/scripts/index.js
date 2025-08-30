@@ -6,6 +6,8 @@ import "onJoin";
 import "ranks";
 import "attacking";
 import "scoreboard";
+import "statView";
+import "menu";
 
 import "hub/alfredShop";
 import "hub/effects";
