@@ -24,3 +24,31 @@ system.runInterval(() => {
         };
     });
 });
+
+//Play Time
+
+system.runInterval(() => {
+    for (const player of world.getPlayers()) {
+        world.scoreboard.getObjective("ptSec").addScore(player, 1)
+    };
+}, 20);
+
+system.runInterval(() => {
+    for (const player of world.getPlayers()) {
+        const ptSec = world.scoreboard.getObjective("ptSec")
+        const ptMin = world.scoreboard.getObjective("ptMin")
+        const ptHour = world.scoreboard.getObjective("ptHour")
+        const ptDay = world.scoreboard.getObjective("ptDay")
+
+        if (ptSec.getScore(player) >= 60) {
+            ptSec.setScore(player, 0);
+            ptMin.addScore(player, 1);
+        } else if (ptMin.getScore(player) >= 60) {
+            ptMin.setScore(player, 0);
+            ptHour.addScore(player, 1);
+        } else if (ptHour.getScore(player) >= 24) {
+            ptHour.setScore(player, 0);
+            ptDay.addScore(player, 1);
+        };
+    };
+});
