@@ -53,7 +53,7 @@ system.beforeEvents.startup.subscribe(event => {
             permissionLevel: CommandPermissionLevel.Any,
         },
         (origin) => {
-            system.run(() => origin.sourceEntity.sendMessage("§gMineCHAMPS Discord server code: §dUyJtnkyUfE"));
+            system.run(() => origin.sourceEntity.sendMessage("§aMineCHAMPS Discord server code: §gUyJtnkyUfE"));
 
             return { status: CustomCommandStatus.Success };
         }
