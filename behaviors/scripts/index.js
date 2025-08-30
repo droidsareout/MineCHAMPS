@@ -5,6 +5,7 @@ import "leaderboards";
 import "onJoin";
 import "ranks";
 import "attacking";
+import "scoreboard";
 
 import "hub/alfredShop";
 import "hub/effects";
