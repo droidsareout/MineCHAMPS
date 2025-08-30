@@ -6,6 +6,7 @@ world.afterEvents.entityDie.subscribe((event) => {
     const deaths = world.scoreboard.getObjective("deaths")
     const kills = world.scoreboard.getObjective("kills")
     const gold = world.scoreboard.getObjective("gold")
+    const lifetimeGold = world.scoreboard.getObjective("lifetimeGold")
     
     if (dead.typeId !== "minecraft:player") return;
 
@@ -24,6 +25,7 @@ world.afterEvents.entityDie.subscribe((event) => {
 
         kills.addScore(attacker, 1)
         gold.addScore(attacker, 2)
+        lifetimeGold.addScore(attacker, 2)
         attacker.onScreenDisplay.setTitle("  ");
         attacker.onScreenDisplay.updateSubtitle("§g+2 Gold §7(kill)");
         attacker.playSound("random.orb");
