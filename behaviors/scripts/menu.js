@@ -108,7 +108,7 @@ function optOut(player) {
 //Spawn
 function spawn(player) {
     player.teleport({ x: 0.50, y: -59, z: 0.50 }, { facingLocation: { x: 0.50, y: -59, z: 1.50 } });
-    player.sendMessage("§gTeleported to Spawn.");
+    player.sendMessage("§gTeleported to §sSpawn§g.");
     system.runTimeout(() => player.playSound("mob.endermen.portal"), 1)
 };
 
