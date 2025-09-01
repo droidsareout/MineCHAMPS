@@ -40,12 +40,13 @@ system.beforeEvents.startup.subscribe(event => {
             } else {
                 system.run(() => origin.sourceEntity.teleport({ x: 0.50, y: -59, z: 0.50 }, { facingLocation: { x: 0.50, y: -59, z: 1.50} }));
                 system.runTimeout(() => origin.sourceEntity.playSound("mob.endermen.portal"), 1);
-                origin.sourceEntity.sendMessage("§gTeleported to spawn.");
+                origin.sourceEntity.sendMessage("§gTeleported to §3Spawn§g.");
 
                 return { status: CustomCommandStatus.Success };
             }
         }
     );
+
     event.customCommandRegistry.registerCommand(
         {
             name: "minechamps:discord",
@@ -53,7 +54,7 @@ system.beforeEvents.startup.subscribe(event => {
             permissionLevel: CommandPermissionLevel.Any,
         },
         (origin) => {
-            system.run(() => origin.sourceEntity.sendMessage("§aMineCHAMPS Discord server code: §gUyJtnkyUfE"));
+            system.run(() => origin.sourceEntity.sendMessage("§gDiscord server code: §UyJtnkyUfE"));
 
             return { status: CustomCommandStatus.Success };
         }
@@ -70,6 +71,21 @@ system.beforeEvents.startup.subscribe(event => {
                 for (let i = 0; i < 100; i++) world.sendMessage(" ");
                 world.sendMessage(`§uChat cleared by ${origin.sourceEntity.name}.`);
                 world.getPlayers().forEach((players) => players.playSound("random.pop"));
+            });
+        }
+    );
+
+    event.customCommandRegistry.registerCommand(
+        {
+            name: "minechamps:maps",
+            description: "Teleport to the maps",
+            permissionLevel: CommandPermissionLevel.GameDirectors
+        },
+        (origin) => {
+            system.run(() => {
+                origin.sourceEntity.teleport({ x: 0.50, y: -60, z: -249.50 }, { facingLocation: { x: 0.50, y: -60, z: -250.50 }});
+                system.runTimeout(() => origin.sourceEntity.playSound("mob.endermen.portal"), 1);
+                origin.sourceEntity.sendMessage("§gTeleported to §nMaps§g.");
             });
         }
     );
