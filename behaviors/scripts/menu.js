@@ -129,7 +129,7 @@ function spectate(player) {
 };
 
 //Stat view
-export function statViewOptions(player) {
+function statViewOptions(player) {
     const form = new ActionFormData()
         .title("§5Stat View")
         .body("§7Who would you like to view the stats of?")
