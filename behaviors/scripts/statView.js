@@ -1,5 +1,9 @@
 import { world, system } from "@minecraft/server";
-import { ActionFormData, uiManager } from "@minecraft/server-ui";
+import { ActionFormData, ModalFormData, uiManager } from "@minecraft/server-ui";
+
+function getScore(id, target) {
+    return world.scoreboard.getObjective(id).getScore(target)
+};
 
 world.beforeEvents.playerInteractWithEntity.subscribe(event => {
     const { player, target, itemStack } = event;
@@ -22,7 +26,3 @@ world.beforeEvents.playerInteractWithEntity.subscribe(event => {
         });
     };
 });
-
-function getScore(id, target) {
-    return world.scoreboard.getObjective(id).getScore(target)
-};
