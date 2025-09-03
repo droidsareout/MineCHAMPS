@@ -14,6 +14,8 @@ import {
 
 import { ActionFormData, ModalFormData, uiManager } from "@minecraft/server-ui";
 
+import { gameOptions } from "game/options";
+
 system.beforeEvents.startup.subscribe(event => {
     event.customCommandRegistry.registerCommand(
         {
@@ -103,6 +105,34 @@ system.beforeEvents.startup.subscribe(event => {
             });
         }
     );
+
+    event.customCommandRegistry.registerCommand(
+        {
+            name: "minechamps:game",
+            description: "Open the game dashboard",
+            permissionLevel: CommandPermissionLevel.GameDirectors
+        },
+        (origin) => {
+            system.run(() => {
+                origin.sourceEntity.playSound("random.pop");
+                gameOptions(origin.sourceEntity);
+            });
+        }
+    );
+
+    event.customCommandRegistry.registerCommand(
+        {
+            name: "minechamps:test",
+            description: "Used for testing out things",
+            permissionLevel: CommandPermissionLevel.GameDirectors
+        },
+        (origin) => {
+            system.run(() => {
+                world.clearDynamicProperties();
+                origin.sourceEntity.clearDynamicProperties();
+            })
+        }
+    )
 });
 
 function getScore(id, target) {
