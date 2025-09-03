@@ -37,7 +37,7 @@ function gameSelect() {
     world.getPlayers().forEach((players) => players.playSound("note.chime"));
     gameInPlayObj.setScore(getRandomString(games), 1);
     
-    if (gameInPlayObj.getScore("§6Dash§r")) mapInPlayObj.setScore(getRandomString(dashMaps), 1);
+    if (gameInPlay() === "§6Dash§r") mapInPlayObj.setScore(getRandomString(dashMaps), 1);
 
     system.runTimeout(() => {
         world.sendMessage("§uGame and map chosen. The selected game is...");
