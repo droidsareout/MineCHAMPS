@@ -15,3 +15,6 @@ import "hub/statDisplay";
 import "hub/suggestionBox";
 import "hub/time";
 import "hub/parkour";
+
+import "game/options";
+import "game/timer";
