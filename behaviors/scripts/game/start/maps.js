@@ -22,7 +22,7 @@ export function dashBiomeMania() {
             player.teleport({ x: 0.50, y: -60, z: 44.50 }, { facingLocation: { x: -1, y: -60, z: 47} });
 
             system.runTimeout(() => {
-                player.sendMessage("§n>> §6DASH INFORMATION\n§mMap: §7BiomeMania\n§gTime: §74m 0s\n§6How to Play: §7Parkour to the end of the course in a select amount of time. There can only be three winners.")
+                player.sendMessage("§n>> §6DASH INFORMATION\n§cMap: §7BiomeMania\n§gTime: §74m 0s\n§sHow to Play: §7Parkour to the end of the course in a select amount of time. There can only be three winners.")
                 player.playSound("random.pop");
 
                 system.runTimeout(() => {
