@@ -1,14 +1,14 @@
 {
-    "format_version": "1.21.40",
-    "frame": {
-        "blockshape": "invisible",
-        "textures": "itemframe_background",
-        "sound": "itemframe"
-    },
-    
-    "glow_frame": {
-        "blockshape": "invisible",
-        "textures": "itemframe_background",
-        "sound": "itemframe"
-    }
+  "format_version": "1.21.40",
+  "frame": {
+    "blockshape": "invisible",
+    "textures": "itemframe_background",
+    "sound": "itemframe"
+  },
+
+  "glow_frame": {
+    "blockshape": "invisible",
+    "textures": "itemframe_background",
+    "sound": "itemframe"
+  }
 }
