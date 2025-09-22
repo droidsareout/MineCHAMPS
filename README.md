@@ -1,1 +1,1 @@
-MineCHAMPS is a passion project I'm currently making on Minecraft Bedrock. The packs in it reside here.
+MineCHAMPS is a minigame world I'm currently making on Minecraft Bedrock. The resources and behaviors that are needed for it to function are here.
