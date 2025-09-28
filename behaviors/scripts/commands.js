@@ -1,14 +1,14 @@
-import { 
+import {
     BlockComponentRandomTickEvent,
-    BlockVolume, 
-    CommandPermissionLevel, 
-    CustomCommandParamType, 
-    CustomCommandStatus, 
-    EntityComponentTypes, 
-    EquipmentSlot, 
-    GameMode, 
-    ScriptEventSource, 
-    system, 
+    BlockVolume,
+    CommandPermissionLevel,
+    CustomCommandParamType,
+    CustomCommandStatus,
+    EntityComponentTypes,
+    EquipmentSlot,
+    GameMode,
+    ScriptEventSource,
+    system,
     world
 } from "@minecraft/server";
 
@@ -27,7 +27,7 @@ system.beforeEvents.startup.subscribe(event => {
             if (origin.sourceEntity.hasTag("inGame")) {
                 system.run(() => origin.sourceEntity.playSound("random.break"));
                 origin.sourceEntity.sendMessage("§vYou cannot return to spawn while in game!");
-            
+
                 return { status: CustomCommandStatus.Success };
             } else if (origin.sourceEntity.hasTag("spectatingGame")) {
                 system.run(() => {
@@ -120,19 +120,18 @@ system.beforeEvents.startup.subscribe(event => {
         }
     );
 
-    event.customCommandRegistry.registerCommand(
-        {
-            name: "minechamps:test",
-            description: "Used for testing out things",
-            permissionLevel: CommandPermissionLevel.GameDirectors
-        },
-        (origin) => {
-            system.run(() => {
-                world.clearDynamicProperties();
-                origin.sourceEntity.clearDynamicProperties();
-            })
-        }
-    )
+  event.customCommandRegistry.registerCommand(
+    {
+      name: "minechamps:test",
+      description: "Used for testing out things",
+      permissionLevel: CommandPermissionLevel.GameDirectors
+    },
+    (origin) => {
+      system.run(() => {
+
+      });
+    }
+  );
 });
 
 function getScore(id, target) {
@@ -176,7 +175,7 @@ function othersStats(player) {
     const form = new ModalFormData();
         form.title("§5Stat View");
         form.dropdown("Select a Player", players.map(player => player.name));
-    form.show(player).then((r) => { 
+    form.show(player).then((r) => {
         if (r.canceled) {
         } else {
             const target = players[r.formValues[0]];
