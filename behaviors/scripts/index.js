@@ -18,3 +18,5 @@ import "hub/parkour";
 
 import "game/options";
 import "game/timer";
+import "game/start/ending";
+import "game/start/functionality";
