@@ -12,7 +12,7 @@ export function gameStopOptions(player) {
         .button("RETURN", "textures/ui/arrow_left")
     form.show(player).then(r => {
         switch (r.selection) {
-            case 0: 
+            case 0:
                 gameStopConfirm(player);
                 break;
 
@@ -30,6 +30,7 @@ function gameStopConfirm(player) {
     world.getPlayers().forEach((players) => {
         if (player.hasTag("inGame")) {
             gameStats.setScore("active", 0);
+            gameStats.setScore("interval", 0)
             players.removeTag("inGame");
             players.teleport({ x: 0.50, y: -59, z: 0.50 }, { facingLocation: { x: 0.50, y: -59, z: 1.50} });
             players.inputPermissions.setPermissionCategory(InputPermissionCategory.Movement, true);
