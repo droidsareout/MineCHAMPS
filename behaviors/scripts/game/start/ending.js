@@ -40,6 +40,7 @@ export function gameEnd() {
         system.runTimeout(() => {
           gameStats.setScore("active", 0);
           gameStats.setScore("interval", 0);
+          gameStats.setScore("placement", 0);
 
           if (player.hasTag("inGame")) {
             player.removeTag("inGame");
@@ -85,6 +86,7 @@ export function gameEnd() {
                     world.scoreboard.getObjective("mapInPlay").setScore(maps[i], 0);
                   };
                 };
+                world.getDimension("overworld").runCommand("scoreboard players reset @e gamePlacement")
                 break;
             };
           }, 150);
