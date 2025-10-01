@@ -1,4 +1,4 @@
-import { world, system } from "@minecraft/server";
+import { world } from "@minecraft/server";
 
 export const maps = ["§qBiome§nMania§r"];
 export const dashMaps = ["§qBiome§nMania§r"];
