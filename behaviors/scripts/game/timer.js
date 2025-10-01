@@ -3,7 +3,6 @@ import { world, system } from "@minecraft/server";
 system.runInterval(() => {
   const gameStats = world.scoreboard.getObjective("gameStats");
   const active = gameStats.getScore("active");
-  const sec = gameStats.getScore("sec");
   const min = gameStats.getScore("min");
 
   if (active === 1 && min >= 0) {
