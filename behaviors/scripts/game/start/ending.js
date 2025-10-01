@@ -1,9 +1,4 @@
-import {
-  world,
-  system,
-  StructureAnimationMode,
-  InputPermissionCategory,
-} from "@minecraft/server";
+import { world, system, StructureAnimationMode } from "@minecraft/server";
 import { gameInPlay, games, maps } from "../status";
 
 export function gameEnd() {
