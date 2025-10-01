@@ -6,9 +6,6 @@ system.runInterval(() => {
   world.getPlayers().forEach((player) => {
     const loc = player.location;
 
-    const inGame = world.scoreboard
-      .getObjective("worldStats")
-      .getScore("inGame");
     const gameMin = world.scoreboard.getObjective("gameStats").getScore("min");
     const gameSec = world.scoreboard.getObjective("gameStats").getScore("sec");
     const gameActive = world.scoreboard
@@ -20,8 +17,6 @@ system.runInterval(() => {
     const gamePlacement = world.scoreboard
       .getObjective("gameStats")
       .getScore("placement");
-
-    let placement;
 
     if (gameMin === 1 && gameSec === 0 && gameInterval === 0) {
       world.sendMessage("§v1 minute remains!");
