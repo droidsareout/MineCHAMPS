@@ -4,7 +4,7 @@
     "anchor_to": "left_middle",
     "max_length": 100,
     "$text_edit_binding_name": "#text_box_item_name",
-    "$text_edit_box_label_size": [ "default", 40 ],
+    "$text_edit_box_label_size": ["default", 40],
     "property_bag": {
       "#property_field": "#item_name"
     }
@@ -14,12 +14,11 @@
     "type": "panel",
     "anchor_from": "left_middle",
     "anchor_to": "left_middle",
-    "size": [ 115, 45 ],
-    "offset": [ 0, 2 ],
+    "size": [115, 45],
+    "offset": [0, 2],
     "controls": [
       {
-        "multiline_text_edit_control@anvil.multiline_text_edit_control": {
-        }
+        "multiline_text_edit_control@anvil.multiline_text_edit_control": {}
       }
     ]
   },
@@ -31,7 +30,7 @@
   },
 
   "top_half_panel": {
-    "size": [ "100% - 14px", "50%" ],
+    "size": ["100% - 14px", "50%"],
     "controls": [
       { "icon_and_text_panel@anvil.icon_and_text_panel": {} },
       { "recipe_panel@anvil.recipe_panel": {} }
@@ -39,10 +38,10 @@
   },
 
   "recipe_panel/cost_label_0": {
-    "offset": [ 0, -5 ]
+    "offset": [0, -5]
   },
 
   "recipe_panel/cost_label_1": {
-    "offset": [ 0, -5 ]
+    "offset": [0, -5]
   }
 }
