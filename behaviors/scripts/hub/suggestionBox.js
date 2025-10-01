@@ -1,4 +1,4 @@
-import { world, system, ItemStack, Entity } from "@minecraft/server";
+import { world, system, ItemStack } from "@minecraft/server";
 
 world.beforeEvents.playerInteractWithBlock.subscribe((event) => {
   const { player } = event;
