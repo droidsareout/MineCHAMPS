@@ -23,7 +23,9 @@ export function gameBoot() {
         break;
 
       case "§bSpleef§r":
-        switch (maps) {
+        switch (mapInPlay()) {
+          case "":
+            break;
         }
     }
   }, 20);
