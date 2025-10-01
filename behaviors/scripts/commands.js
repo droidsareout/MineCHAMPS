@@ -201,6 +201,7 @@ function othersStats(player) {
   );
   form.show(player).then((r) => {
     if (r.canceled) {
+      uiManager.closeAllForms(player);
     } else {
       const target = players[r.formValues[0]];
       const form = new ActionFormData()
