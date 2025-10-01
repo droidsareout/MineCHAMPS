@@ -1,5 +1,5 @@
 import { world, system } from "@minecraft/server";
-import { gameInPlay, mapInPlay, games, maps } from "../status";
+import { gameInPlay, mapInPlay } from "../status";
 import { gameEnd } from "./ending";
 
 system.runInterval(() => {
