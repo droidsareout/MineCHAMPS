@@ -1,4 +1,4 @@
-import { world, system, GameMode } from "@minecraft/server";
+import { world, GameMode } from "@minecraft/server";
 
 world.beforeEvents.playerInteractWithBlock.subscribe((data) => {
   const { block, itemStack, player } = data;
