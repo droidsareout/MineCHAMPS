@@ -1,20 +1,18 @@
 {
-    "format_version": "1.16.0",
-    "minecraft:client_entity": {
-        "description": {
-            "identifier": "minechamps:floating_text",
-            "geometry": {
-                "default": "geometry.null"
-            },
-            "textures": {
-                "default": "textures/entity/axolotl/axolotl_gold"
-            },
-            "materials": {
-                "default": "entity_alphatest"
-            },
-            "render_controllers": [
-                "controller.render.default"
-            ]
-        }
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minechamps:floating_text",
+      "geometry": {
+        "default": "geometry.null"
+      },
+      "textures": {
+        "default": "textures/entity/axolotl/axolotl_gold"
+      },
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "render_controllers": ["controller.render.default"]
     }
+  }
 }
