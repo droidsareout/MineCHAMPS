@@ -30,7 +30,6 @@ export function gameStopOptions(player) {
 
 function gameStopConfirm(player) {
   const gameStats = world.scoreboard.getObjective("gameStats");
-  const active = gameStats.getScore("active");
 
   world.getPlayers().forEach((players) => {
     if (player.hasTag("inGame")) {
