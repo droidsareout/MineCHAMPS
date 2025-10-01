@@ -1,11 +1,6 @@
 import {
-  BlockComponentRandomTickEvent,
-  BlockVolume,
   CommandPermissionLevel,
-  CustomCommandParamType,
   CustomCommandStatus,
-  EntityComponentTypes,
-  EquipmentSlot,
   GameMode,
   system,
   world,
