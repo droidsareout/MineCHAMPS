@@ -7,13 +7,14 @@ system.runInterval(() => {
 
     if (player.hasTag("inGame")) return;
 
-    if (player.hasTag("optedIn"))
+    if (player.hasTag("optedIn") || player.hasTag("spectatingGame")) {
       player.onScreenDisplay.setActionBar(
         `§aOPTED-IN §7| §gGOLD§7: §c${gold.getScore(player)}`,
       );
-    else
+    } else {
       player.onScreenDisplay.setActionBar(
         `§cOPTED-OUT §7| §gGOLD§7: §c${gold.getScore(player)}`,
       );
+    }
   }
 });
