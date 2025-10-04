@@ -146,10 +146,11 @@ system.beforeEvents.startup.subscribe((event) => {
       description: "Used for testing out things",
       permissionLevel: CommandPermissionLevel.GameDirectors,
     },
-    // (origin) => {
-    //   system.run(() => {
-    //   });
-    // },
+    (origin) => {
+      system.run(() => {
+        origin.sourceEntity.sendMessage("Hello.");
+      });
+    },
   );
 });
 
