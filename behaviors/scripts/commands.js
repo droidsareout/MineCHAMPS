@@ -184,7 +184,7 @@ function yourStats(player) {
   const form = new ActionFormData()
     .title(`§8Your §5Stats`)
     .body(
-      `§g§lGENERAL§r\n§h> §bPlaytime§7: §c${getScore("ptDay", player)}§7d, §c${getScore("ptHour", player)}§7h, §c${getScore("ptMin", player)}§7m, §c${getScore("ptSec", player)}§7s\n§h> §dWins§7: §c${getScore("wins", player)}\n§h> §gGold§7: §c${getScore("gold", player)}\n§h> §cKills§7: §c${getScore("kills", player)}\n§h> §4Deaths§7: §c${getScore("deaths", player)}`,
+      `§g§lGENERAL§r\n§h> §bPlaytime§7: §c${getScore("ptDay", player)}§7d, §c${getScore("ptHour", player)}§7h, §c${getScore("ptMin", player)}§7m, §c${getScore("ptSec", player)}§7s\n§h> §dWins§7: §c${getScore("wins", player)}\n§h> §gGold§7: §c${getScore("gold", player)}\n§h> §gLifetime Gold§7: §c${getScore("lifetimeGold", player)}\n§h> §cKills§7: §c${getScore("kills", player)}\n§h> §4Deaths§7: §c${getScore("deaths", player)}`,
     )
     .button("RETURN", "textures/ui/arrow_left");
   form.show(player).then((r) => {
@@ -208,7 +208,7 @@ function othersStats(player) {
       const form = new ActionFormData()
         .title(`§8${target.name}'s §5Stats`)
         .body(
-          `§g§lGENERAL§r\n§h> §bPlaytime§7: §c${getScore("ptDay", target)}§7d, §c${getScore("ptHour", target)}§7h, §c${getScore("ptMin", target)}§7m, §c${getScore("ptSec", target)}§7s\n§h> §dWins§7: §c${getScore("wins", target)}\n§h> §gGold§7: §c${getScore("gold", target)}\n§h> §cKills§7: §c${getScore("kills", target)}\n§h> §4Deaths§7: §c${getScore("deaths", target)}`,
+          `§g§lGENERAL§r\n§h> §bPlaytime§7: §c${getScore("ptDay", target)}§7d, §c${getScore("ptHour", target)}§7h, §c${getScore("ptMin", target)}§7m, §c${getScore("ptSec", target)}§7s\n§h> §dWins§7: §c${getScore("wins", target)}\n§h> §gGold§7: §c${getScore("gold", target)}\n§h> §gLifetime Gold§7: §c${getScore("lifetimeGold", target)}\n§h> §cKills§7: §c${getScore("kills", target)}\n§h> §4Deaths§7: §c${getScore("deaths", target)}`,
         )
         .button("RETURN", "textures/ui/arrow_left");
       form.show(player).then((r) => {
