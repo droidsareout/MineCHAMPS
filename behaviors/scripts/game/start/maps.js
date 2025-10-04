@@ -60,10 +60,11 @@ export function dashBiomeMania() {
           const interval = system.runInterval(() => {
             countdown -= 1;
             player.onScreenDisplay.updateSubtitle(`§g${countdown}`);
+            player.playSound("random.click");
             if (countdown < 1) {
               player.onScreenDisplay.updateSubtitle("");
               player.onScreenDisplay.setTitle("");
-              player.playSound("mob.enderdragon.growl", { volume: 0.5 });
+              player.playSound("mob.enderdragon.growl", { volume: 0.15 });
               player.inputPermissions.setPermissionCategory(
                 InputPermissionCategory.Movement,
                 true,
