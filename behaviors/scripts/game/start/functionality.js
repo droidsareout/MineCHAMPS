@@ -8,6 +8,9 @@ system.runInterval(() => {
 
     const gameMin = world.scoreboard.getObjective("gameStats").getScore("min");
     const gameSec = world.scoreboard.getObjective("gameStats").getScore("sec");
+    const gamePlayers = world.scoreboard
+      .getObjective("worldStats")
+      .getScore("inGame");
     const gameActive = world.scoreboard
       .getObjective("gameStats")
       .getScore("active");
@@ -46,6 +49,9 @@ system.runInterval(() => {
               Math.floor(loc.z) === 77 &&
               player.getGameMode() === "Adventure"
             ) {
+              world.scoreboard
+                .getObjective("gameStats")
+                .addScore("finished", 1);
               switch (
                 world.scoreboard.getObjective("gameStats").getScore("placement")
               ) {
@@ -125,7 +131,10 @@ system.runInterval(() => {
             }
             break;
         }
+
         if (gameMin === 0 && gameSec === 0 && gameActive === 1) {
+          gameEnd();
+        } else if (gamePlayers === 0 && gameActive === 1) {
           gameEnd();
         }
         break;
