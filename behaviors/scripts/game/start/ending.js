@@ -130,7 +130,7 @@ export function gameEnd() {
                 }
                 world
                   .getDimension("overworld")
-                  .runCommand("scoreboard players reset @e gamePlacement");
+                  .runCommand("scoreboard players reset * gamePlacement");
                 break;
             }
           }, 150);
