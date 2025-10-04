@@ -3,6 +3,9 @@ import { gameInPlay, games, maps } from "../status";
 
 export function gameEnd() {
   const gameStats = world.scoreboard.getObjective("gameStats");
+  const gamePlayers = world.scoreboard
+    .getObjective("worldStats")
+    .getScore("inGame");
   let gameInterval = gameStats.getScore("interval");
 
   world.getPlayers().forEach((player) => {
@@ -105,34 +108,30 @@ export function gameEnd() {
                     player.playSound("random.break");
                   }
                 }
-
-                for (let i = 0; i < games.length; i++) {
-                  if (
-                    world.scoreboard
-                      .getObjective("gameInPlay")
-                      .getScore(games[i]) === 1
-                  ) {
-                    world.scoreboard
-                      .getObjective("gameInPlay")
-                      .setScore(games[i], 0);
-                  }
-                }
-                for (let i = 0; i < maps.length; i++) {
-                  if (
-                    world.scoreboard
-                      .getObjective("mapInPlay")
-                      .getScore(maps[i]) === 1
-                  ) {
-                    world.scoreboard
-                      .getObjective("mapInPlay")
-                      .setScore(maps[i], 0);
-                  }
-                }
-                world
-                  .getDimension("overworld")
-                  .runCommand("scoreboard players reset * gamePlacement");
                 break;
             }
+            for (let i = 0; i < games.length; i++) {
+              if (
+                world.scoreboard
+                  .getObjective("gameInPlay")
+                  .getScore(games[i]) === 1
+              ) {
+                world.scoreboard
+                  .getObjective("gameInPlay")
+                  .setScore(games[i], 0);
+              }
+            }
+            for (let i = 0; i < maps.length; i++) {
+              if (
+                world.scoreboard.getObjective("mapInPlay").getScore(maps[i]) ===
+                1
+              ) {
+                world.scoreboard.getObjective("mapInPlay").setScore(maps[i], 0);
+              }
+            }
+            world
+              .getDimension("overworld")
+              .runCommand("scoreboard players reset * gamePlacement");
           }, 150);
         }, 60);
       }, 100);
