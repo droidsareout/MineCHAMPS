@@ -9,7 +9,7 @@ export function gameEnd() {
     if (gameInterval === 6) {
       gameInterval++;
 
-      if (player.hasTag("inGame")) {
+      if (player.hasTag("inGame") || player.hasTag("spectatingGame")) {
         player.playSound("mob.enderdragon.hit", { volume: 0.25 });
         player.onScreenDisplay.setTitle("§vGAME OVER", {
           stayDuration: 120,
@@ -25,7 +25,7 @@ export function gameEnd() {
       gameStats.setScore("sec", 0);
 
       system.runTimeout(() => {
-        if (player.hasTag("inGame")) {
+        if (player.hasTag("inGame") || player.hasTag("spectatingGame")) {
           player.camera.fade({
             fadeTime: {
               fadeInTime: 1.5,
