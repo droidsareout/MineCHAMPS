@@ -35,6 +35,7 @@ function gameStopConfirm(player) {
     if (player.hasTag("inGame")) {
       gameStats.setScore("active", 0);
       gameStats.setScore("interval", 0);
+      gameStats.setScore("placement", 0);
       players.removeTag("inGame");
       players.teleport(
         { x: 0.5, y: -59, z: 0.5 },
@@ -65,6 +66,9 @@ function gameStopConfirm(player) {
       world.scoreboard.getObjective("mapInPlay").setScore(maps[i], 0);
     }
   }
+  world
+    .getDimension("overworld")
+    .runCommand("scoreboard players reset * gamePlacement");
 
   world.structureManager.place(
     "arenaDefault",
