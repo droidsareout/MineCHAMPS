@@ -45,8 +45,10 @@ export function gameEnd() {
           gameStats.setScore("interval", 0);
           gameStats.setScore("placement", 0);
 
-          if (player.hasTag("inGame")) {
+          if (player.hasTag("inGame") || player.hasTag("spectatingGame")) {
             player.removeTag("inGame");
+            player.removeTag("spectatingGame");
+            player.setGameMode("Adventure");
             player.teleport(
               { x: 0.5, y: -59, z: 0.5 },
               { facingLocation: { x: 0.5, y: -59, z: 1.5 } },
