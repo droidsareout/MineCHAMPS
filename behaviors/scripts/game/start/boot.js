@@ -7,7 +7,6 @@ export function gameBoot() {
   const gameStats = world.scoreboard.getObjective("gameStats");
 
   world.sendMessage("§uBooting up game.");
-  gameStats.setScore("active", 1);
   world.getPlayers().forEach((players) => players.playSound("note.chime"));
 
   system.runTimeout(() => {
@@ -28,6 +27,7 @@ export function gameBoot() {
             break;
         }
     }
+    gameStats.setScore("active", 1);
   }, 20);
 }
 
