@@ -14,9 +14,6 @@ system.runInterval(() => {
     const gameInterval = world.scoreboard
       .getObjective("gameStats")
       .getScore("interval");
-    const gamePlacement = world.scoreboard
-      .getObjective("gameStats")
-      .getScore("placement");
 
     if (gameMin === 1 && gameSec === 0 && gameInterval === 0) {
       world.sendMessage("§v1 minute remains!");
@@ -49,65 +46,81 @@ system.runInterval(() => {
               Math.floor(loc.z) === 77 &&
               player.getGameMode() === "Adventure"
             ) {
-              world.scoreboard
-                .getObjective("gameStats")
-                .addScore("placement", 1);
+              switch (
+                world.scoreboard.getObjective("gameStats").getScore("placement")
+              ) {
+                case 0:
+                  world.scoreboard
+                    .getObjective("gameStats")
+                    .setScore("placement", 1);
 
-              if (gamePlacement === 1) {
-                player.sendMessage(
-                  "§gYou finished in §p§l1st place§r§g!\n§g+10 Gold",
-                );
-                world.scoreboard.getObjective("gold").addScore(player, 10);
-                world.scoreboard.getObjective("win").addScore(player, 1);
-                world.scoreboard
-                  .getObjective("lifetimeGold")
-                  .addScore(player, 10);
-                world.scoreboard
-                  .getObjective("gamePlacement")
-                  .setScore(player, 1);
-                player.playSound("random.levelup");
-                player.setGameMode("Spectator");
-                player.addTag("spectatingGame");
-                player.removeTag("inGame");
-                player.sendMessage(
-                  "§gYou are now spectating the game. Type §a/spawn §gto leave.",
-                );
-              } else if (gamePlacement === 2) {
-                player.sendMessage(
-                  "§gYou finished in §i§l2nd place§r§g!\n§g+5 Gold",
-                );
-                world.scoreboard.getObjective("gold").addScore(player, 5);
-                world.scoreboard
-                  .getObjective("lifetimeGold")
-                  .addScore(player, 5);
-                world.scoreboard
-                  .getObjective("gamePlacement")
-                  .setScore(player, 2);
-                player.playSound("random.levelup");
-                player.setGameMode("Spectator");
-                player.addTag("spectatingGame");
-                player.removeTag("inGame");
-                player.sendMessage(
-                  "§gYou are now spectating the game. Type §a/spawn §gto leave.",
-                );
-              } else if (gamePlacement === 3) {
-                player.sendMessage(
-                  "§gYou finished in §n§l3rd place§r§g!\n§g+3 Gold",
-                );
-                world.scoreboard.getObjective("gold").addScore(player, 3);
-                world.scoreboard
-                  .getObjective("lifetimeGold")
-                  .addScore(player, 3);
-                world.scoreboard
-                  .getObjective("gamePlacement")
-                  .setScore(player, 3);
-                player.playSound("random.levelup");
-                player.setGameMode("Spectator");
-                player.addTag("spectatingGame");
-                player.removeTag("inGame");
-                player.sendMessage(
-                  "§gYou are now spectating the game. Type §a/spawn §gto leave.",
-                );
+                  player.sendMessage(
+                    "§gYou finished in §p§l1st place§r§g!\n§g+10 Gold",
+                  );
+                  world.scoreboard.getObjective("gold").addScore(player, 10);
+                  world.scoreboard.getObjective("wins").addScore(player, 1);
+                  world.scoreboard
+                    .getObjective("lifetimeGold")
+                    .addScore(player, 10);
+                  world.scoreboard
+                    .getObjective("gamePlacement")
+                    .setScore(player, 1);
+                  player.playSound("random.levelup");
+                  player.setGameMode("Spectator");
+                  player.addTag("spectatingGame");
+                  player.removeTag("inGame");
+                  player.sendMessage(
+                    "§gYou are now spectating the game. Type §a/spawn §gto leave.",
+                  );
+                  break;
+
+                case 1:
+                  world.scoreboard
+                    .getObjective("gameStats")
+                    .setScore("placement", 2);
+
+                  player.sendMessage(
+                    "§gYou finished in §i§l2nd place§r§g!\n§g+5 Gold",
+                  );
+                  world.scoreboard.getObjective("gold").addScore(player, 5);
+                  world.scoreboard
+                    .getObjective("lifetimeGold")
+                    .addScore(player, 5);
+                  world.scoreboard
+                    .getObjective("gamePlacement")
+                    .setScore(player, 2);
+                  player.playSound("random.levelup");
+                  player.setGameMode("Spectator");
+                  player.addTag("spectatingGame");
+                  player.removeTag("inGame");
+                  player.sendMessage(
+                    "§gYou are now spectating the game. Type §a/spawn §gto leave.",
+                  );
+                  break;
+
+                case 2:
+                  world.scoreboard
+                    .getObjective("gameStats")
+                    .setScore("placement", 1);
+
+                  player.sendMessage(
+                    "§gYou finished in §n§l3rd place§r§g!\n§g+3 Gold",
+                  );
+                  world.scoreboard.getObjective("gold").addScore(player, 3);
+                  world.scoreboard
+                    .getObjective("lifetimeGold")
+                    .addScore(player, 3);
+                  world.scoreboard
+                    .getObjective("gamePlacement")
+                    .setScore(player, 3);
+                  player.playSound("random.levelup");
+                  player.setGameMode("Spectator");
+                  player.addTag("spectatingGame");
+                  player.removeTag("inGame");
+                  player.sendMessage(
+                    "§gYou are now spectating the game. Type §a/spawn §gto leave.",
+                  );
+                  break;
               }
             }
             break;
