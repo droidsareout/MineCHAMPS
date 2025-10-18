@@ -1,6 +1,7 @@
 import { world, system } from '@minecraft/server';
 
-import { dashBiomeMania } from './maps';
+import { dashBiomeMania } from '../maps/dash.js';
+import { spleefOctogono } from '../maps/spleef.js'
 import { gameInPlay, mapInPlay } from '../status';
 
 export function gameBoot() {
@@ -24,7 +25,8 @@ export function gameBoot() {
 
             case '§bSpleef§r':
                 switch (mapInPlay()) {
-                    case '':
+                    case 'Octogono':
+						spleefOctogono();
                         break;
                 }
         }

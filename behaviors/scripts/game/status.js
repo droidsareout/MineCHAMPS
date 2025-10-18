@@ -1,9 +1,11 @@
 import { world } from '@minecraft/server';
 
-export const maps = ['§qBiome§nMania§r'];
-export const dashMaps = ['§qBiome§nMania§r'];
+export const maps = ['§qBiome§nMania§r','§gOctogono§r'];
 
-export const games = ['§6Dash§r'];
+export const dashMaps = ['§qBiome§nMania§r'];
+export const spleefMaps = ['§gOctogono§r']
+
+export const games = ['§6Dash§r', '§3Spleef§r'];
 
 export function mapInPlay() {
     const participants = world.scoreboard
