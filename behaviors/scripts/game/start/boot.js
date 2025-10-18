@@ -5,7 +5,7 @@ import { gameInPlay, mapInPlay } from '../status';
 
 export function gameBoot() {
     const gameStats = world.scoreboard.getObjective('gameStats');
-    gameStats.setScore('active', 1);
+	gameStats.setScore('active', 1);
 
     world.sendMessage('§uBooting up game.');
     world.getPlayers().forEach((players) => players.playSound('note.chime'));
