@@ -1,5 +1,2 @@
-.eslintrc
-.prettierrc
-eslint.config.mjs
 package.json
 node_modules/
