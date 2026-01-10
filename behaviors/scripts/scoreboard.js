@@ -1,8 +1,9 @@
+/** @import { Player } from '@minecraft/server'; */
 import { world, system } from '@minecraft/server';
 
 //Default Values
-world.afterEvents.playerJoin.subscribe((event) => {
-    const player = world.getEntity(event.playerId);
+/** @param {Player} player */
+function initializePlayerScores(player) {
     const scoreboard = world.scoreboard;
     const objectiveIds = [
         'kills',
@@ -21,6 +22,14 @@ world.afterEvents.playerJoin.subscribe((event) => {
         const objective = scoreboard.getObjective(id);
         if (objective === undefined) continue;
         objective.addScore(player, 0);
+    }
+}
+world.afterEvents.playerJoin.subscribe((event) => {
+    initializePlayerScores(world.getEntity(event.playerId));
+});
+world.afterEvents.worldLoad.subscribe(() => {
+    for (const player of world.getAllPlayers()) {
+        initializePlayerScores(player);
     }
 });
 
