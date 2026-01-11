@@ -59,12 +59,11 @@ system.runInterval(() => {
 
 //Player counts
 system.runInterval(() => {
-    const overworld = world.getDimension('overworld');
     const worldStats = world.scoreboard.getObjective('worldStats');
     const onlineCount = world.getAllPlayers().length;
-    const inGameCount = overworld.getPlayers({ tags: ['inGame'] }).length;
-    const spectatingGameCount = overworld.getPlayers({ tags: ['spectatingGame'] }).length;
-    const optedInCount = overworld.getPlayers({ tags: ['optedIn'] }).length;
+    const inGameCount = world.getPlayers({ tags: ['inGame'] }).length;
+    const spectatingGameCount = world.getPlayers({ tags: ['spectatingGame'] }).length;
+    const optedInCount = world.getPlayers({ tags: ['optedIn'] }).length;
     const optedOutCount = onlineCount - optedInCount;
 
     worldStats.setScore('online', onlineCount);
